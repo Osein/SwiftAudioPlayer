@@ -577,7 +577,7 @@ extension SAPlayer: SAPlayerDelegate {
     private func becomeDeviceAudioPlayer() {
         do {
             if #available(iOS 11.0, tvOS 11.0, *) {
-                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, policy: .longFormAudio, options: [])
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, policy: .longFormAudio, options: [.duckOthers])
             } else {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: AVAudioSession.Mode(rawValue: convertFromAVAudioSessionMode(AVAudioSession.Mode.default)), options: .allowAirPlay)
             }
